@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Linear Regression Model Prediction</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 20px;
+			padding: 20px;
+			background-color: #f4f4f4;
+		}
+		h2 {
+			color: #333;
+		}
+		form {
+			background: #fff;
+			padding: 20px;
+			border-radius: 8px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		}
+		div {
+			margin-bottom: 10px;
+		}
+		label {
+			margin-bottom: 5px;
+			display: block;
+			color: #666;
+		}
+		input[type="text"] {
+			width: 100%;
+			padding: 8px;
+			margin: 4px 0;
+			box-sizing: border-box;
+			border-radius: 4px;
+			border: 1px solid #ddd;
+			font-size: 14px;
+		}
+		button {
+			background-color: #007bff;
+			color: white;
+			padding: 10px 24px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			font-size: 16px;
+		}
+		button:hover {
+			background-color: #0056b3;
+		}
+		h3 {
+			color: green;
+		}
+	</style>
+</head>
+<body>
+	<h2>Predict Boston Housing Prices</h2>
+	<form action="/predict" method="post">
+		<div>
+			<label for="RM">Average number of rooms (RM):</label>
+			<input type="text" id="RM" name="RM" required>
+		</div>
+		<div>
+			<label for="PTRATIO">Pupil-teacher ratio by town (PTRATIO):</label>
+			<input type="text" id="PTRATIO" name="PTRATIO" required>
+		</div>
+		<div>
+			<label for="LSTAT">% lower status of the population (LSTAT):</label>
+			<input type="text" id="LSTAT" name="LSTAT" required>
+		</div>
+		<button type="submit">Predict</button>
+	</form>
+	{% if prediction_text %}
+		<h3>{{ prediction_text }}</h3>
+	{% endif %}
+</body>
+</html>
